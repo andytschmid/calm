@@ -1,10 +1,25 @@
 # MSSQL 2014 Blueprint - Instructions
 
+### IMPORTANT: This blueprint is for POC/Demo or to be used as a starting point only. Do not put this into production without modifying it to meet your organizations requirements, Nutanix Best Practices, and Microsoft SQL Best Practices.
+
 Certain prerequisites must be met before installation will succeed. The following must be configured:
 ```
 MSSQL installation requires CredSSP to be enabled on Karan host
 
 Account running karan service must have the following privileges (SE_ASSIGNPRIMARYTOKEN_NAME, SE_INCREASE_QUOTA_NAME)
+```
+
+The following variables should be configured before use: 
+```
+On the SQL Service, set the variable "install_location" to external to download ISO from internet, or internal to download from a file share. If set to external, no further variables need to be modified.
+
+If set to internal, you will need to fill out the following variables:
+file_share_user
+file_share_password
+file_server_ip
+file_share_name
+sql_iso_path (include path and iso file)
+mapped_drive
 ```
 
 ### To Enable CredSSP on the Karan host, please follow steps below:
